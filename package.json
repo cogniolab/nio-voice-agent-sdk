@@ -1,0 +1,51 @@
+{
+  "name": "nio-voice-agent-sdk",
+  "version": "0.1.0",
+  "description": "Open-source voice agent platform - Self-hosted alternative to enterprise voice AI solutions",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "eslint packages --ext .ts,.tsx",
+    "format": "prettier --write \"packages/**/*.{ts,tsx,json,md}\""
+  },
+  "keywords": [
+    "voice-agent",
+    "ai",
+    "voice-ai",
+    "speech-to-text",
+    "text-to-speech",
+    "llm",
+    "mcp",
+    "deepgram",
+    "anthropic",
+    "openai",
+    "self-hosted"
+  ],
+  "author": "Cognio Labs <dev@cogniolab.com>",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cogniolab/nio-voice-agent-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cogniolab/nio-voice-agent-sdk/issues"
+  },
+  "homepage": "https://github.com/cogniolab/nio-voice-agent-sdk#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

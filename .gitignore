@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnp.*
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+.turbo/
+
+# Testing
+coverage/
+.nyc_output/
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+secrets/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Runtime
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+# Cache
+.cache/
+.eslintcache
+.prettier-cache
+
+# OS
+Thumbs.db

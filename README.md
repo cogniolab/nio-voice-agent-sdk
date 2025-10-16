@@ -191,12 +191,16 @@ Don't want to self-host? Use [Nio Voice Cloud](https://nioai.us/) for:
 
 ## 💬 Community
 
-- **[GitHub Discussions](https://github.com/cogniolab/nio-voice-agent-sdk/discussions)** - Ask questions, share ideas
+Join our community to ask questions, share ideas, and connect with other developers building voice-enabled AI agents!
+
+- **[GitHub Discussions](https://github.com/cogniolab/nio-voice-agent-sdk/discussions)** - Ask questions, share your work, and discuss best practices
 - **Email**: dev@cogniolab.com
 - **Enterprise Support**: Available with commercial license
 
+We're building a supportive community where developers help each other create amazing voice AI experiences. Whether you're just getting started or building production systems, your questions and contributions are welcome!
+
 ---
 
-**Built with ❤️ by [Cognio Labs](https://cogniolab.com)**
+**Built with ❤️ by [Cognio Lab](https://cogniolab.com)**
 
 *Making voice AI accessible to everyone*

@@ -155,7 +155,7 @@ We chose AGPL-3.0 to ensure that improvements to voice AI technology remain open
 
 ## 🌟 Nio Voice Cloud
 
-Don't want to self-host? Use [Nio Voice Cloud](https://voice.cogniolab.com) for:
+Don't want to self-host? Use [Nio Voice Cloud](https://nioai.us/) for:
 
 - 🎯 **Auto-discovery** - Paste your website URL, get a voice agent instantly
 - 🏭 **Industry templates** - Pre-built for healthcare, HVAC, retail, etc.

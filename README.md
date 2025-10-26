@@ -204,3 +204,118 @@ We're building a supportive community where developers help each other create am
 **Built with ❤️ by [Cognio Lab](https://cogniolab.com)**
 
 *Making voice AI accessible to everyone*
+
+
+# NIO Voice Agent SDK
+
+Open-source voice agent platform - Self-hosted alternative to enterprise voice AI.
+
+## Features
+
+- **Real-time Voice Processing**: Low-latency audio input/output with streaming support
+- **Multi-Model Support**: Integrate with OpenAI, Anthropic, or self-hosted LLMs
+- **Speech Recognition & Synthesis**: Built-in STT/TTS with multiple provider options
+- **Conversation Management**: Context awareness, session handling, and conversation history
+- **Extensible Architecture**: Custom providers, middleware, and pipeline configurations
+- **Production Ready**: Load balancing, error recovery, and monitoring built-in
+
+## Quick Start
+
+### Installation
+
+```bash
+pip install nio-voice-agent-sdk
+```
+
+### Basic Example
+
+```python
+from nio_voice_agent import VoiceAgent, Config
+
+config = Config(
+    llm_provider="openai",
+    stt_provider="openai",
+    tts_provider="openai",
+    voice="alloy"
+)
+
+agent = VoiceAgent(config=config)
+
+# Start listening and responding
+async def main():
+    await agent.start()
+    await agent.listen()
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
+```
+
+### Advanced Setup
+
+```python
+from nio_voice_agent import VoiceAgent, Config, CustomProvider
+
+config = Config(
+    llm_provider="custom",
+    llm_endpoint="http://localhost:8000",
+    conversation_context_window=10,
+    enable_logging=True,
+    log_level="DEBUG"
+)
+
+agent = VoiceAgent(config=config)
+agent.on_message(lambda msg: print(f"Agent: {msg}"))
+```
+
+## Configuration
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `llm_provider` | str | "openai" | LLM backend provider |
+| `stt_provider` | str | "openai" | Speech-to-text service |
+| `tts_provider` | str | "openai" | Text-to-speech service |
+| `voice` | str | "alloy" | TTS voice identifier |
+| `temperature` | float | 0.7 | LLM sampling temperature |
+
+## Architecture
+
+```
+Audio Input → STT → LLM → TTS → Audio Output
+                    ↓
+              Conversation Memory
+```
+
+## Self-Hosting
+
+Deploy with Docker:
+
+```bash
+docker build -t nio-voice-agent .
+docker run -e OPENAI_API_KEY=$OPENAI_API_KEY \
+           -p 8080:8080 \
+           nio-voice-agent
+```
+
+## API Server
+
+```python
+from nio_voice_agent.server import create_app
+
+app = create_app()
+# Run with: uvicorn app:app --host 0.0.0.0 --port 8080
+```
+
+## Contributing
+
+We welcome contributions. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## License
+
+AGPL-3.0 - See [LICENSE](LICENSE) for details.
+
+## Support
+
+- **Documentation**: [docs.nio-voice.dev](https://docs.nio-voice.dev)
+- **Issues**: [GitHub Issues](https://github.com/nio-voice/sdk/issues)
+- **Community**: [Discord](https://discord.gg/nio-voice)

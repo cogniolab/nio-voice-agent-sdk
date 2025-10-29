@@ -1,234 +1,100 @@
-# Contributing to Nio Voice Agent SDK
+# Contributing to nio-voice-agent-sdk
 
-Thank you for your interest in contributing to Nio Voice Agent SDK! We welcome contributions from the community.
+Thank you for your interest in contributing to nio-voice-agent-sdk! This document provides guidelines for participating in our community.
 
-## 📜 License Agreement
+## Code of Conduct
 
-By contributing to this project, you agree that your contributions will be licensed under the **AGPL-3.0** license. This means:
+We're committed to providing a welcoming environment. Please treat all community members with respect and foster inclusive discussions.
 
-- Your code will be freely available to the community
-- Any network services using your code must also be open source (AGPL requirement)
-- You retain copyright to your contributions
-- You grant Cognio Labs the right to include your contribution in commercial licenses
-
-If you need clarification on licensing, please email dev@cogniolab.com
-
-## 🎯 Ways to Contribute
-
-### 1. Report Bugs
-
-Found a bug? Please open an issue with:
-- Clear description of the bug
-- Steps to reproduce
-- Expected vs actual behavior
-- Environment details (OS, Node version, etc.)
-
-### 2. Suggest Features
-
-Have an idea? Open a feature request with:
-- Clear description of the feature
-- Use case explaining why it's needed
-- Example of how it would work
-- Potential implementation approach
-
-### 3. Submit Pull Requests
+## Getting Started
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass: `npm test`
-6. Format code: `npm run format`
-7. Commit: `git commit -m "feat: add amazing feature"`
-8. Push: `git push origin feature/amazing-feature`
-9. Open a Pull Request
+2. Clone your fork: `git clone https://github.com/your-username/nio-voice-agent-sdk.git`
+3. Create a feature branch: `git checkout -b feature/your-feature-name`
+4. Make your changes and commit with clear messages
+5. Push to your fork and submit a Pull Request
 
-## 🛠️ Development Setup
-
-### Prerequisites
-
-- Node.js >= 18.0.0
-- npm >= 9.0.0
-
-### Setup Steps
+## Development Setup
 
 ```bash
-# Clone repository
-git clone https://github.com/cogniolab/nio-voice-agent-sdk.git
-cd nio-voice-agent-sdk
-
 # Install dependencies
-npm install
-
-# Build all packages
-npm run build
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
 # Run tests
-npm test
+pytest tests/
 
-# Run in development mode
-npm run dev
+# Format code
+black .
+isort .
+
+# Lint
+pylint src/
 ```
 
-### Running Examples
+## Contribution Types
 
-```bash
-# Navigate to example
-cd examples/basic-agent
+### Bug Reports
+- Use GitHub Issues with the "bug" label
+- Include reproduction steps, expected behavior, and actual behavior
+- Specify your environment (OS, Python version, etc.)
 
-# Install dependencies
-npm install
+### Feature Requests
+- Label as "enhancement"
+- Describe the use case and benefits
+- Provide examples if applicable
 
-# Set environment variables
-cp .env.example .env
-# Edit .env with your API keys
+### Code Contributions
+- Write clean, well-documented code
+- Add tests for new functionality (maintain >80% coverage)
+- Follow PEP 8 style guidelines
+- Update relevant documentation
 
-# Run example
-npm start
-```
+### Documentation
+- Fix typos and clarify explanations
+- Add examples for complex features
+- Update README and API docs as needed
 
-## 📝 Code Style
-
-- Follow existing code patterns
-- Use TypeScript with strict type checking
-- Write clear, descriptive variable and function names
-- Add JSDoc comments for public APIs
-- Keep functions focused and small (< 50 lines)
-
-### TypeScript Guidelines
-
-```typescript
-// Good: Clear types, good naming
-async function startVoiceSession(
-  config: VoiceConfig,
-  options?: SessionOptions
-): Promise<Session> {
-  // Implementation
-}
-
-// Bad: Unclear types, vague naming
-async function start(c: any, opts?: any): Promise<any> {
-  // Implementation
-}
-```
-
-## 🧪 Testing
-
-- Write unit tests for all new functionality
-- Use Jest for testing framework
-- Mock external dependencies (Deepgram, OpenAI, etc.)
-- Aim for >80% code coverage
-
-Example test:
-
-```typescript
-import { VoiceAgent } from '../src/VoiceAgent';
-
-describe('VoiceAgent', () => {
-  let agent: VoiceAgent;
-
-  beforeEach(() => {
-    agent = new VoiceAgent({
-      speech: mockSpeechProvider,
-      llm: mockLLMProvider
-    });
-  });
-
-  test('should start session', async () => {
-    const session = await agent.startSession();
-    expect(session.id).toBeDefined();
-  });
-});
-```
-
-## 📚 Documentation
-
-- Update documentation for new features
-- Add examples for new functionality
-- Keep README up to date
-- Add JSDoc comments for public APIs
-
-## 🎯 Priority Areas
-
-We'd love help with:
-
-1. **Provider Integrations** - Add support for more LLM and speech providers
-2. **MCP Connectors** - Build connectors for popular services
-3. **Testing Tools** - Improve the testing framework
-4. **Examples** - Create more real-world examples
-5. **Documentation** - Improve guides and tutorials
-6. **Performance** - Optimize streaming and session management
-
-## 🔒 Security
-
-**Found a security vulnerability?** Please **DO NOT** open a public issue.
-
-Email dev@cogniolab.com with:
-- Description of the vulnerability
-- Steps to reproduce
-- Potential impact
-- Suggested fix (if any)
-
-We will respond within 48 hours and work with you to address the issue.
-
-## 💬 Communication
-
-- **GitHub Discussions** - Ask questions, share ideas
-- **Discord** - Real-time community chat
-- **Email** - dev@cogniolab.com for sensitive matters
-
-## 🎖️ Recognition
-
-Contributors will be:
-- Listed in CONTRIBUTORS.md
-- Credited in release notes
-- Eligible for Nio Voice swag
-- Invited to contributor calls
-
-## 📋 Commit Message Guidelines
+## Commit Guidelines
 
 Use conventional commits:
+- `feat:` New feature
+- `fix:` Bug fix
+- `docs:` Documentation
+- `test:` Tests
+- `refactor:` Code refactoring
 
-- `feat:` - New feature
-- `fix:` - Bug fix
-- `docs:` - Documentation changes
-- `test:` - Test additions or changes
-- `refactor:` - Code refactoring
-- `perf:` - Performance improvements
-- `chore:` - Build process or tooling changes
+Example: `feat: add streaming audio support for websocket connections`
 
-Examples:
+## Pull Request Process
 
-```
-feat: add Groq LLM provider
-fix: resolve session cleanup memory leak
-docs: update MCP framework guide
-test: add integration tests for voice streaming
-```
+1. Ensure all tests pass: `pytest tests/`
+2. Update CHANGELOG.md with your changes
+3. Add yourself to CONTRIBUTORS.md
+4. Write a clear PR description explaining your changes
+5. Reference related issues using `Closes #123`
+6. Maintain backwards compatibility when possible
+7. Wait for at least one maintainer approval
 
-## ⚖️ Code of Conduct
+## License
 
-- Be respectful and inclusive
-- Welcome newcomers
-- Provide constructive feedback
-- Focus on collaboration
-- Respect different perspectives
+By contributing, you agree that your contributions will be licensed under the AGPL-3.0 license. See LICENSE file for details.
 
-## 🚀 Release Process
+## Reporting Security Issues
 
-1. Maintainers review and approve PRs
-2. Changes are merged to `main`
-3. CI/CD runs tests and builds
-4. Semantic versioning for releases
-5. Changelog generated automatically
-6. npm packages published
+Do not open public issues for security vulnerabilities. Email security@nio-agent.dev instead.
 
-## 📞 Questions?
+## Questions?
 
-- GitHub Discussions: Ask the community
-- Email: dev@cogniolab.com
-- Discord: Join our community
+- Check existing issues and discussions first
+- Ask in GitHub Discussions for general questions
+- Join our Discord community (link in README)
 
----
+## Recognition
 
-Thank you for contributing to Nio Voice Agent SDK! Together, we're making voice AI accessible to everyone. 🎉
+Contributors are recognized in:
+- CONTRIBUTORS.md
+- Release notes for significant contributions
+- Community highlights on our website
+
+Thank you for making nio-voice-agent-sdk better!
